@@ -18,3 +18,23 @@ torch.manual_seed(SEED)
 np.random.seed(SEED)
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
+def evaluate(model, loader):
+    model.eval()
+    ys, preds = [], []
+    probs_all = []
+    with torch.no_grad():
+        for b in loader:
+            x = b["x"].to(DEVICE)
+            y = b["y"].cpu().numpy().astype(int)
+            logits = model(x)
+            probs = torch.sigmoid(logits).cpu().numpy()
+            pred = (probs >= 0.5).astype(int)
+
+            ys.extend(y.tolist())
+            preds.extend(pred.tolist())
+            probs_all.extend(probs.tolist())
+
+    acc = accuracy_score(ys, preds)
+    p, r, f1, _ = precision_recall_fscore_support(ys, preds, average="binary", zero_division=0)
+    return {"accuracy": acc, "precision": p, "recall": r, "f1": f1}
