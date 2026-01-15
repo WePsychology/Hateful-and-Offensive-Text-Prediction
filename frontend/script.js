@@ -1,3 +1,5 @@
+const API_URL = "http://127.0.0.1:8000/predict";
+
 function escapeHtml(str) {
   return str.replaceAll("&","&amp;")
             .replaceAll("<","&lt;")
@@ -68,3 +70,4 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
