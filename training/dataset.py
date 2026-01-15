@@ -14,3 +14,13 @@ class HateDataset(Dataset):
         self.labels = df["label"].astype(int).tolist()
         self.vocab = vocab
         self.max_len = max_len
+
+def __len__(self):
+        return len(self.labels)
+
+    def __getitem__(self, idx):
+        ids = encode(self.texts[idx], self.vocab)
+        ids = pad_or_truncate(ids, self.max_len, self.vocab.pad_idx)
+        x = torch.tensor(ids, dtype=torch.long)
+        y = torch.tensor(self.labels[idx], dtype=torch.float32)
+        return {"x": x, "y": y}
