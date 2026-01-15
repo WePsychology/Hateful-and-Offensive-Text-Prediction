@@ -8,6 +8,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+ART_DIR = "backend/artifacts"
 
 # -------- Tokenizer (same logic as training, but self-contained) --------
 PAD = "<PAD>"
@@ -70,3 +71,4 @@ def censor_text(text: str, flagged_words: List[str]) -> str:
         return text
     pattern = r"\b(" + "|".join(map(re.escape, flagged_words)) + r")\b"
     return re.sub(pattern, "****", text, flags=re.IGNORECASE)
+
