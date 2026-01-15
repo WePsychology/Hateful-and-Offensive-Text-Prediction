@@ -2,6 +2,8 @@ import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
+RAW_PATH = "data/raw/hate.csv"
+OUT_DIR = "data/processed"
 
 # Settings
 SEED = 42
@@ -46,3 +48,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
