@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Hate Speech Detector (MVP)</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+  <div class="wrap">
+    <h1>Hateful & Offensive Text Detector</h1>
+    <p class="sub">Paste text → detect hate words → highlight → optional remove.</p>
+
+    <textarea id="textInput" placeholder="Paste your paragraph here..."></textarea>
+
+    <div class="row">
+      <label class="chk">
+        <input type="checkbox" id="removeToggle" />
+        Remove/censor flagged words
+      </label>
+
+      <button id="analyzeBtn">Analyze</button>
+    </div>
+
+    <div id="result" class="card hidden">
+      <div class="badge" id="badge"></div>
+      <div class="meta" id="meta"></div>
+
+      <h3>Highlighted Output</h3>
+      <div id="highlighted" class="output"></div>
+
+      <h3>Clean Text</h3>
+      <pre id="cleaned" class="pre"></pre>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
