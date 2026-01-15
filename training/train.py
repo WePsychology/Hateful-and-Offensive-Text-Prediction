@@ -39,8 +39,7 @@ def evaluate(model, loader):
     p, r, f1, _ = precision_recall_fscore_support(ys, preds, average="binary", zero_division=0)
     return {"accuracy": acc, "precision": p, "recall": r, "f1": f1}
 
-
-    def main():
+def main():
     train_csv = os.path.join(DATA_DIR, "train.csv")
     val_csv   = os.path.join(DATA_DIR, "val.csv")
     test_csv  = os.path.join(DATA_DIR, "test.csv")
@@ -104,4 +103,3 @@ def evaluate(model, loader):
 
 if __name__ == "__main__":
     main()
-
