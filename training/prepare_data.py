@@ -39,6 +39,11 @@ def main():
         stratify=temp_df["label"]
     )
 
+    # Save files
+    train_df.to_csv(os.path.join(OUT_DIR, "train.csv"), index=False)
+    val_df.to_csv(os.path.join(OUT_DIR, "val.csv"), index=False)
+    test_df.to_csv(os.path.join(OUT_DIR, "test.csv"), index=False)
+
 
     # Print summary
     print("✅ Dataset split completed")
@@ -48,4 +53,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
