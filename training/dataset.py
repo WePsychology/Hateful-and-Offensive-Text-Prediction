@@ -3,7 +3,6 @@ import torch
 from torch.utils.data import Dataset
 from tokenizer import Vocab, encode, pad_or_truncate
 
-
 class HateDataset(Dataset):
     def __init__(self, csv_path: str, vocab: Vocab, max_len: int = 40):
         df = pd.read_csv(csv_path, encoding="latin1")
@@ -15,7 +14,7 @@ class HateDataset(Dataset):
         self.vocab = vocab
         self.max_len = max_len
 
-def __len__(self):
+    def __len__(self):
         return len(self.labels)
 
     def __getitem__(self, idx):
